@@ -4,9 +4,13 @@
  * Use Cursor's Inline Edit to fix it, so the test will pass.
  */
 function calculateShipping(weight, region) {
-    // Currently always returns 10, which is WRONG
-    return 10;
-  }
-  
-  module.exports = calculateShipping;
+    // Base rate is always $5
+    const baseRate = 5;
+    
+    // Rate per pound is $2
+    const ratePerPound = 2;
+    return baseRate + (weight * ratePerPound);
+}
+
+module.exports = calculateShipping;
   
