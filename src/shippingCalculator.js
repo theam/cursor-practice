@@ -1,12 +1,22 @@
 /**
- * A function that *incorrectly* calculates shipping.
- * The test expects a specific formula, but we are returning a hard-coded value.
- * Use Cursor's Inline Edit to fix it, so the test will pass.
+ * A function that calculates shipping based on weight and region.
+ * Currently only implements base formula as region-specific pricing
+ * is not yet specified in tests.
  */
 function calculateShipping(weight, region) {
-    // Currently always returns 10, which is WRONG
-    return 10;
-  }
-  
-  module.exports = calculateShipping;
-  
+  // Base shipping cost for all regions
+  const baseCost = 5;
+  const costPerWeight = 2;
+
+  // Future enhancement: Add region-specific multipliers or rules here
+  // Example:
+  // const regionMultipliers = {
+  //   'US': 1.0,
+  //   'EU': 1.2,
+  //   'ASIA': 1.5
+  // };
+
+  return baseCost + weight * costPerWeight;
+}
+
+module.exports = calculateShipping;
